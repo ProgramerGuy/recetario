@@ -1,69 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Recetario Dulce</title>
+<title>Mi Recetario</title>
 
-<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 
 </head>
 
 <body>
 
-<header>
-    <h1>🍰 Recetario Dulce</h1>
-    <p>Mis recetas de repostería</p>
-    <p>
-🍪 Repostería • 🍰 Pasteles • 🧁 Cupcakes • 🍫 Brownies
-</p>
-</header>
+<div id="modalReceta" class="fixed inset-0 hidden z-50">
 
+    <div
+        id="modalOverlay"
+        class="absolute inset-0 bg-black/60 backdrop-blur-sm">
+    </div>
 
-<section class="hero">
+    <div
 
-    <div class="hero-info">
+        id="modalContenido"
 
-        <h2>📖 Mi Recetario de Repostería</h2>
-
-        <p>
-            Todas mis recetas favoritas organizadas en un solo lugar.
-            Cada receta está preparada para imprimirse en una hoja tamaño carta.
-        </p>
-
-        <div class="datos">
-
-            <div>
-                🍪
-                <span>8 recetas</span>
-            </div>
-
-            <div>
-                🧁
-                <span>Impresión fácil</span>
-            </div>
-
-            <div>
-                📄
-                <span>1 receta por hoja</span>
-            </div>
-
-        </div>
-
-        <button class="imprimirTodo" onclick="window.print()">
-
-            🖨 Imprimir todo el recetario
-
-        </button>
+        class="absolute inset-0 md:inset-6 lg:inset-10 bg-white rounded-none md:rounded-3xl overflow-hidden flex flex-col opacity-0 scale-95 transition-all duration-300">
 
     </div>
 
+</div>
+
+<div id="overlayPrint" class="hidden">
+    <div class="loader"></div>
+    <h2>Preparando impresión...</h2>
+</div>
+
+<header class="sticky top-0 z-49 bg-white shadow">
+
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<h1 class="text-2xl font-bold text-amber-700">
+
+<i class="fa-solid fa-book-open"></i>
+
+Mi Recetario
+
+</h1>
+
+<input
+
+id="buscar"
+
+type="text"
+
+placeholder="Buscar receta..."
+
+class="border rounded-xl px-4 py-2 w-72 outline-none focus:ring-2 focus:ring-amber-500">
+
+</div>
+
+</header>
+
+
+
+<section
+
+id="hero"
+
+class="max-w-7xl mx-auto p-8">
+
+
+
+<div class="bg-gradient-to-r from-orange-400 to-amber-600 rounded-3xl text-white p-10 shadow-xl">
+
+<h2 class="text-6xl font-black">
+
+📖 Mi Recetario
+
+</h2>
+
+<p class="mt-6 text-xl opacity-90">
+
+Las mejores recetas de repostería en un solo lugar.
+
+</p>
+
+<p class="text-lg opacity-90">
+
+Todas tus recetas favoritas en un solo lugar.
+
+</p>
+
+<div class="flex flex-wrap gap-3 mt-8">
+
+<button class="categoria bg-white text-orange-700 px-5 py-2 rounded-full font-semibold" data-cat="Todos">
+
+Todos
+
+</button>
+
+<button class="categoria bg-white/20 px-5 py-2 rounded-full" data-cat="Galletas">
+
+🍪 Galletas
+
+</button>
+
+<button class="categoria bg-white/20 px-5 py-2 rounded-full" data-cat="Panes">
+
+🍞 Panes
+
+</button>
+
+<button class="categoria bg-white/20 px-5 py-2 rounded-full" data-cat="Cupcakes">
+
+🧁 Cupcakes
+
+</button>
+
+<button class="categoria bg-white/20 px-5 py-2 rounded-full" data-cat="Betunes">
+
+🧈 Betunes
+
+</button>
+
+<button class="categoria bg-white/20 px-5 py-2 rounded-full" data-cat="Decoración">
+
+🍥 Decoración
+
+</button>
+
+</div>
+
+<div class="mt-8">
+
+<button
+
+onclick="imprimirTodo()"
+
+class="bg-white text-orange-700 px-8 py-4 rounded-xl font-bold shadow-lg hover:scale-105 transition">
+
+<i class="fa-solid fa-print"></i>
+
+Imprimir Recetario
+
+</button>
+
+</div>
+
+</div>
+
 </section>
-<main id="recetas"></main>
 
 
+
+<main
+
+id="grid"
+
+class="max-w-7xl mx-auto p-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+</main>
+
+
+
+<section
+
+id="printArea"
+
+class="hidden max-w-4xl mx-auto p-10">
+
+</section>
+
+<iframe
+    id="printFrame"
+    style="display:none;width:0;height:0;border:0;">
+</iframe>
+
+
+
+
+<script src="js/recetas.js"></script>
+<script src="js/print.js"></script>
 <script src="js/app.js"></script>
 
 </body>
+
 </html>

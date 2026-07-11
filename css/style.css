@@ -1,499 +1,500 @@
-*{
-    box-sizing:border-box;
-    font-family:'Segoe UI', sans-serif;
-}
+/* ============================
+   FUENTE Y COLORES
+============================ */
 
-ul, ol{
+html{
 
-    margin-top:5px;
-    margin-bottom:5px;
+    scroll-behavior:smooth;
 
 }
 
+body{
 
-li{
+    font-family:'Poppins',sans-serif;
 
-    margin-bottom:4px;
-    font-size:14px;
+    background:
+
+linear-gradient(
+
+180deg,
+
+#FFF8F3,
+
+#FFF3EA,
+
+#FFF8F3
+
+);
+
+    color:#4B3A2F;
+
+}
+
+/* ============================
+   SCROLL
+============================ */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#FFF3EA;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#D99B73;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#B96C46;
+
+}
+
+/* ============================
+   HEADER
+============================ */
+
+header{
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.90);
+
+}
+
+/* ============================
+   TARJETAS
+============================ */
+
+.card{
+
+    transition:.35s;
+
+    animation:fadeUp .5s ease;
+
+    border:1px solid rgba(0,0,0,.05);
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.15);
+
+}
+
+/* ============================
+   BOTONES
+============================ */
+
+button{
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+}
+
+button:active{
+
+    transform:scale(.96);
+
+}
+
+/* ============================
+   INPUT
+============================ */
+
+input{
+
+    transition:.25s;
+
+}
+
+input:focus{
+
+    transform:scale(1.02);
+
+}
+
+/* ============================
+   RECETA ABIERTA
+============================ */
+
+#printArea{
+
+    animation:fade .4s ease;
+
+}
+
+/* ============================
+   LISTAS
+============================ */
+
+#printArea li{
+
+    line-height:1.7;
+
+}
+
+/* ============================
+   TITULOS
+============================ */
+
+h1,h2,h3{
+
+    letter-spacing:.4px;
+
+}
+
+/* ============================
+   TAGS
+============================ */
+
+.tag{
+
+    display:inline-block;
+
+    background:#FFF1E6;
+
+    color:#C96C42;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+/* ============================
+   ANIMACIONES
+============================ */
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media(max-width:768px){
+
+header h1{
+
+font-size:1.4rem;
+
+}
+
+#buscar{
+
+width:100%;
+
+margin-top:12px;
+
+}
+
+header .max-w-7xl{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+#hero{
+
+padding:18px;
+
+}
+
+#hero h2{
+
+font-size:2rem;
+
+}
+
+.card{
+
+border-radius:24px;
+
+}
+
+#printArea{
+
+padding:18px;
+
+}
+
+#printArea h1{
+
+font-size:2rem;
+
+}
+
+}
+
+/* ============================
+   IMPRESIÓN
+============================ */
+
+@media print{
+
+@page{
+
+    size:letter;
+    margin:10mm;
+
+}
+
+html,
+body{
+
+    background:white !important;
+
+}
+
+/* Ocultar TODO lo de la pantalla */
+
+header,
+#hero,
+#grid,
+#volver,
+#btnImprimirReceta,
+button,
+input{
+
+    display:none !important;
+
+}
+
+/* Mostrar únicamente el área de impresión */
+
+#printArea{
+
+    display:block !important;
+
+    position:static !important;
+
+    width:100% !important;
+
+    padding:0 !important;
+
+    margin:0 !important;
+
+}
+
+/* Cada receta inicia en una hoja */
+
+.hoja{
+
+    page-break-after:always;
+
+    break-after:page;
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
+
+    width:100%;
+
+}
+
+/* La última no deja una hoja en blanco */
+
+.hoja:last-child{
+
+    page-break-after:auto;
+
+}
+
+/* Imagen */
+
+.foto-print{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+}
+
+/* Títulos */
+
+h1{
+
+    font-size:26px;
+
+    margin-bottom:10px;
 
 }
 
 h2{
 
-    font-size:1.6rem;
-
-}
-
-h3{
-
-    font-size:1.1rem;
-
-}
-
-
-/* body{
-    margin:0;
-    background:#fff8f0;
-    color:#3b2a20;
-} */
-
-body{
-
-    margin:0;
-
-    background:linear-gradient(180deg,#fffdf8,#fff5eb);
-
-    color:#3d2f24;
-
-}
-
-
-/* header{
-    text-align:center;
-    padding:25px;
-    background:#d98b5f;
-    color:white;
-} */
-
-header{
-
-    background:linear-gradient(135deg,#D98B5F,#C96C42);
-
-    color:white;
-
-    padding:50px 20px;
-
-    text-align:center;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-}
-
-
-main{
-
-    width:min(1200px,95%);
-    margin:auto;
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-
-    gap:25px;
-
-    padding:20px;
-
-}
-
-
-.receta{
-
-    background:white;
-    border-radius:15px;
-    padding:25px;
-    margin-bottom:25px;
-    width:100%;
-
-    box-shadow:0 4px 15px rgba(0,0,0,.15);
-        overflow:hidden;
-
-    transition:.35s;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-}
-
-.receta:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 45px rgba(0,0,0,.18);
-
-}
-
-
-.receta h2{
-
-    color:#b35c32;
-
-}
-
-
-.imagen{
-
-    width:100%;
-    max-width:180px;
-
-    aspect-ratio:1;
-
-    margin:auto;
-
-    background:#fff4e6;
-
-    border-radius:50%;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-
-    font-size:75px;
-    font-size:55px;
-    overflow:hidden;
-    
-
-}
-
-
-.seccion{
-
-    margin-top:20px;
-
-}
-
-ul{
-
-    padding-left:18px;
-
-}
-
-li{
-
-    line-height:1.45;
-
-}
-
-.pasos li{
-
-position:relative;
-
-padding-left:40px;
-
-margin-bottom:15px;
-
-}
-
-
-.info{
-
-    background:#fff0dc;
-    padding:15px;
-    border-radius:10px;
-    margin-top:15px;
-
-}
-
-
-button{
-
-    background:#b35c32;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    width:100%;
-
-    padding:15px;
-
-    font-size:16px;
-
-}
-
-
-button:hover{
-
-    background:#8d4423;
-
-}
-
-
-
-@media print {
-
-    body.imprimir-una .receta{
-
-    display:none;
-
-}
-
-body.imprimir-una .receta.solo{
-
-    display:block;
-
-}
-
-
-header{
-    display:none;
-}
-
-
-button{
-    display:none;
-}
-
-
-    body{
-        background:white !important;
-    }
-
-    main{
-        display:block !important;
-    }
-
-    .receta{
-
-        width:100% !important;
-
-        box-shadow:none !important;
-
-        border:none !important;
-
-        margin:0 !important;
-
-        padding:10mm !important;
-
-        page-break-after:always;
-
-    }
-
-.receta h2{
-
-    font-size:22px;
-    margin:5px 0;
-    text-align:center;
-
-}
-
-.tag{
-
-display:inline-block;
-
-background:#FFE6C7;
-
-padding:8px 15px;
-
-border-radius:30px;
-
-margin:4px;
-
-font-size:14px;
-
-font-weight:bold;
-
-}
-
-
-h3{
-
-    font-size:16px;
-    margin:10px 0 5px;
-
-}
-
-body{
-
-    background:white;
-
-}
-
-}
-
-@media print{
-
-
-@page{
-
-    size:letter;
-    margin:12mm;
-
-}
-
-
-body{
-
-    background:white;
-    font-size:12px;
-
-}
-
-
-header{
-
-    display:none;
-
-}
-
-
-.imprimirTodo,
-button{
-
-    display:none;
-
-}
-
-
-.receta{
-
-    box-shadow:none;
-    border:none;
-
-    width:100%;
-
-    page-break-after:always;
-
-    padding:5px;
-
-}
-
-
-.imagen{
-
-    width:90px;
-    height:90px;
-
-    font-size:45px;
-
-}
-
-
-.receta h2{
+    margin-top:14px;
 
     font-size:18px;
 
 }
 
-
-h3{
-
-    font-size:14px;
-
-}
-
-
-li{
-
-    font-size:12px;
-
-}
-
-}
-
-.hero{
-
-    max-width:900px;
-
-    margin:30px auto;
-
-    background:white;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.12);
-
-    animation:aparecer .8s ease;
-
-}
-
-
-.hero h2{
-
-    text-align:center;
-
-    color:#b35c32;
-
-}
-
-
-.hero p{
-
-    text-align:center;
-
-    color:#555;
-
-    line-height:1.6;
-
-}
-
-
-.datos{
-
-    display:flex;
-
-    justify-content:space-around;
-
-    margin:30px 0;
-
-}
-
-
-.datos div{
-
-    text-align:center;
-
-    font-size:30px;
-
-}
-
-
-.datos span{
-
-    display:block;
-
-    font-size:15px;
+ul,
+ol{
 
     margin-top:8px;
 
-}
-
-
-.imprimirTodo{
-
-    display:block;
-
-    margin:auto;
-
-    font-size:18px;
-
-    padding:15px 35px;
+    margin-bottom:8px;
 
 }
 
-@keyframes aparecer{
+li{
 
-0%{
+    margin-bottom:5px;
+
+    line-height:1.4;
+
+}
+
+.horno{
+
+    margin-top:14px;
+
+    font-weight:bold;
+
+}
+
+}
+
+img{
+
+transition:.5s;
+
+}
+
+.card:hover img{
+
+transform:scale(1.08);
+}
+
+.card{
 
 opacity:0;
-transform:translateY(40px);
+
+animation:mostrar .6s forwards;
 
 }
 
-100%{
+.card:nth-child(1){
 
-opacity:1;
-transform:translateY(0);
-
-}
+animation-delay:.05s;
 
 }
 
-.receta{
+.card:nth-child(2){
 
-    animation:subir .7s ease;
-
-    transition:.3s;
+animation-delay:.10s;
 
 }
 
-@keyframes subir{
+.card:nth-child(3){
+
+animation-delay:.15s;
+
+}
+
+.card:nth-child(4){
+
+animation-delay:.20s;
+
+}
+
+.card:nth-child(5){
+
+animation-delay:.25s;
+
+}
+
+.card:nth-child(6){
+
+animation-delay:.30s;
+
+}
+
+.card:nth-child(7){
+
+animation-delay:.35s;
+
+}
+
+.card:nth-child(8){
+
+animation-delay:.40s;
+
+}
+
+@keyframes mostrar{
 
 from{
 
 opacity:0;
 
-transform:translateY(25px);
+transform:translateY(40px);
 
 }
 
@@ -507,97 +508,57 @@ transform:translateY(0);
 
 }
 
-.receta:hover{
+section{
 
-transform:translateY(-8px);
+    break-inside:avoid;
 
-box-shadow:0 15px 30px rgba(0,0,0,.18);
-
-}
-
-.imprimirTodo{
-
-transition:.3s;
+    page-break-inside:avoid;
 
 }
 
-.imprimirTodo:hover{
+#overlayPrint{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(6px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+}
 
-transform:scale(1.08);
+#overlayPrint.show{
+    opacity:1;
+    pointer-events:all;
+}
+
+.loader{
+
+    width:70px;
+    height:70px;
+    border:7px solid #eee;
+    border-top:7px solid #d97706;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
 
 }
 
-.imprimirTodo:active{
+@keyframes spin{
 
-transform:scale(.95);
-
-}
-
-.imagen{
-
-transition:.4s;
-
-}
-
-.receta:hover .imagen{
-
-transform:rotate(8deg) scale(1.1);
-
-}
-
-@media print{
-
-.hero{
-
-display:none;
-
-}
-
-}
-
-@media(max-width:768px){
-
-.hero{
-
-padding:20px;
-
-}
-
-.datos{
-
-flex-direction:column;
-gap:15px;
-
-}
-
-.receta{
-
-padding:18px;
-
+to{
+transform:rotate(360deg);
 }
 
 }
 
-@media(max-width:480px){
+#overlayPrint h2{
 
-body{
-
-font-size:15px;
-
-}
-
-h2{
-
+margin-top:20px;
 font-size:22px;
-
-}
-
-.imagen{
-
-max-width:120px;
-
-font-size:60px;
-
-}
+color:#b45309;
 
 }

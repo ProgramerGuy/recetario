@@ -1,319 +1,622 @@
-const recetas = [
+const grid = document.getElementById("grid");
+const buscar = document.getElementById("buscar");
+// const printArea = document.getElementById("printArea");
+const hero = document.getElementById("hero");
+const modal = document.getElementById("modalReceta");
+const modalContenido = document.getElementById("modalContenido");
+const modalOverlay = document.getElementById("modalOverlay");
 
-{
-nombre:"🍪 Polvorones de nuez",
-imagen:"🌰",
+let categoriaActual = "Todos";
 
-ingredientes:[
-"500 gramos harina",
-"150 gramos azúcar",
-"150 gramos nuez en trozos",
-"50 gramos manteca vegetal",
-"300 gramos mantequilla Selecta"
-],
+/* ============================= */
+/* CREAR TARJETAS */
+/* ============================= */
 
-pasos:[
-"Acremar manteca, mantequilla y azúcar.",
-"Combinar harina y nuez hasta formar una masa homogénea.",
-"Formar bolitas y aplastarlas un poco. Tener preparada la charola con papel encerado.",
-"Hornear a 180°C de 10 a 15 minutos.",
-"Sacar del horno y espolvorear con azúcar refinada."
-],
+function crearTarjetas() {
 
-horno:"🔥 180°C | 10-15 minutos"
-},
+    grid.innerHTML = "";
 
+    const texto = buscar.value.toLowerCase();
 
-{
-nombre:"🍫 Panqué de chispas",
-imagen:"🍫",
+    const filtradas = recetas.filter(receta => {
 
-ingredientes:[
-"3 huevos",
-"1 taza azúcar",
-"1/2 taza aceite",
-"1 taza leche",
-"2 tazas harina",
-"1 cucharadita vainilla",
-"1 taza chispas de chocolate",
-"2 cucharaditas polvo de hornear",
-"1 pizca de sal"
-],
+        const nombre = receta.nombre.toLowerCase().includes(texto);
 
-pasos:[
-"En un bol batir huevos, azúcar, aceite, leche y vainilla durante 2 minutos exactos.",
-"En otro recipiente mezclar harina, polvo de hornear y sal suavemente.",
-"Agregar las chispas de chocolate con 2 cucharadas de harina y mezclar de forma envolvente.",
-"Agregar ingredientes secos a los líquidos sin sobrebatir.",
-"Incorporar las chispas de forma envolvente.",
-"Hornear."
-],
+        const categoria =
+            categoriaActual === "Todos" ||
+            receta.categoria === categoriaActual;
 
-horno:"🔥 180°C | 30-45 minutos"
-},
+        return nombre && categoria;
 
+    });
 
-{
-nombre:"🧁 Cupcake de chocolate",
-imagen:"🧁",
+    if (filtradas.length === 0) {
 
-ingredientes:[
-"1 taza harina",
-"1/2 taza cocoa en polvo",
-"1/2 taza mantequilla",
-"3/4 taza azúcar refinada",
-"1 huevo",
-"1 cucharadita vainilla",
-"1/2 taza leche",
-"1/4 cucharadita sal",
-"1/2 cucharadita bicarbonato",
-"1 cucharadita polvo de hornear"
-],
+        grid.innerHTML = `
+        <div class="col-span-full text-center py-20">
 
-pasos:[
-"Colocar los capacillos en el molde.",
-"Mezclar harina, cocoa, polvo de hornear, bicarbonato y sal.",
-"Acremar mantequilla y azúcar hasta obtener una mezcla clara y esponjosa.",
-"Agregar el huevo uno a uno sin sobrebatir.",
-"Agregar vainilla.",
-"Agregar ingredientes secos alternando con la leche.",
-"Llenar capacillos a 2/3 de capacidad.",
-"Hornear."
-],
+            <i class="fa-solid fa-cookie-bite text-6xl text-orange-300"></i>
 
-horno:"🔥 175°C | 18-22 minutos"
-},
+            <h2 class="text-3xl font-bold mt-6">
+                No se encontraron recetas
+            </h2>
 
+        </div>
+        `;
 
-{
-nombre:"🍰 Pan de vainilla",
-imagen:"🍰",
+        return;
 
-ingredientes:[
-"350 gramos harina",
-"1 cucharada polvo de hornear",
-"1/2 cucharadita sal",
-"230 gramos mantequilla sin sal",
-"400 gramos azúcar refinada",
-"4 huevos",
-"1 cucharadita vainilla",
-"Leche necesaria para integrar la mezcla"
-],
+    }
 
-pasos:[
-"Cernir harina con polvo de hornear y sal. Reservar.",
-"Batir mantequilla hasta que esté suave y cremosa.",
-"Agregar poco a poco el azúcar hasta obtener una mezcla esponjosa.",
-"Añadir huevos uno a uno.",
-"Agregar vainilla.",
-"Agregar ingredientes secos alternando con leche hasta integrar.",
-"Engrasar molde y colocar papel para hornear.",
-"Dejar enfriar 10 minutos antes de desmoldar."
-],
+    filtradas.forEach(receta => {
 
-horno:"🔥 180°C | 40-50 minutos"
-},
+        grid.innerHTML += `
 
+<div class="card bg-white rounded-3xl overflow-hidden shadow-lg">
 
-{
-nombre:"🍪 Galletas de avena",
-imagen:"🥣",
+    <div class="relative h-60 overflow-hidden">
 
-ingredientes:[
-"1 taza harina",
-"1 1/2 taza avena en hojuelas",
-"1 taza azúcar mascabado",
-"1 huevo",
-"1 cucharada vainilla",
-"1/2 cucharada canela en polvo",
-"1/2 cucharada bicarbonato",
-"1/4 cucharada sal",
-"1/2 taza coco rallado",
-"1/2 taza arándanos",
-"1/2 taza nuez en trozos",
-"45 gramos mantequilla"
-],
+        <img
+            src="${receta.imagen}"
+            alt="${receta.nombre}"
+            class="w-full h-full object-cover">
 
-pasos:[
-"Integrar huevo y vainilla.",
-"En otro recipiente agregar harina, avena, azúcar mascabado, canela, bicarbonato y sal.",
-"Mezclar ingredientes secos con la mezcla anterior.",
-"Agregar coco rallado, arándanos y nuez en trozos.",
-"Formar las galletas y preparar charola con papel para hornear.",
-"Hornear."
-],
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
 
-horno:"🔥 180°C | 10-15 minutos"
-},
+        <div class="absolute bottom-5 left-5">
 
+            <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full">
 
-{
-nombre:"🍪 Masa para galletas",
-imagen:"🎨",
+                ${receta.categoria}
 
-ingredientes:[
-"1/2 kg manteca Inca",
-"1 kg harina Selecta",
-"4 huevos",
-"1 cucharada Rexal",
-"3/4 taza azúcar refinada",
-"1/2 taza leche en polvo",
-"1 cucharada vainilla oscura"
-],
+            </span>
 
-pasos:[
-"En un bowl poner harina, Rexal y leche en polvo. Reservar.",
-"Acremar la manteca durante 5 minutos.",
-"Agregar azúcar y batir hasta eliminar grumos.",
-"Agregar huevos uno a uno incorporando bien cada uno.",
-"Agregar vainilla.",
-"Integrar ingredientes secos y amasar.",
-"Formar las galletas."
-],
+            <h2 class="text-white text-2xl font-bold mt-3">
 
-horno:"🔥 180°C | 15-20 minutos"
-},
+                ${receta.nombre}
 
+            </h2>
 
-{
-nombre:"🍥 Glasa madre / Royal icing",
-imagen:"🍥",
+        </div>
 
-ingredientes:[
-"1 kg azúcar glass cernida",
-"130 ml agua",
-"30 gramos merengue en polvo",
-"5 gramos cremor tártaro",
-"2 cucharadas vainilla transparente"
-],
+    </div>
 
-pasos:[
-"Colocar azúcar glass en un bowl.",
-"Cernir cremor tártaro y merengue en polvo junto con el azúcar.",
-"Agregar vainilla al agua.",
-"Agregar poco a poco el agua y batir.",
-"Cuando esté integrado batir durante 5 minutos.",
-"Guardar en recipiente con tapa.",
-"No refrigerar, conservar a temperatura ambiente."
-],
+    <div class="p-6">
 
-horno:"❄️ No requiere horneado"
-},
+        <div class="mb-5">
 
+            <span class="tag">
 
-{
-nombre:"🧁 Betún de mantequilla",
-imagen:"🧈",
+                ${receta.horno}
 
-ingredientes:[
-"150 gramos mantequilla Selecta",
-"450 gramos azúcar glass",
-"1 cucharada merengue en polvo",
-"2-4 cucharadas leche entera",
-"15 gramos manteca Cristal",
-"Esencia de vainilla al gusto"
-],
+            </span>
 
-pasos:[
-"Batir mantequilla y manteca hasta integrar.",
-"Agregar azúcar glass en dos partes.",
-"Agregar esencia de vainilla.",
-"Agregar primero 2 cucharadas de leche.",
-"Batir la segunda parte de azúcar glass con leche adicional si es necesario.",
-"Continuar batiendo hasta obtener textura cremosa."
-],
+        </div>
 
-horno:"❄️ No requiere horneado"
+        <button
+
+            class="w-full bg-orange-500 hover:bg-orange-600 text-white rounded-xl py-3 font-semibold transition"
+
+            onclick="verReceta('${receta.nombre.replace(/'/g,"\\'")}')">
+
+            Ver receta
+
+        </button>
+
+    </div>
+
+</div>
+
+`;
+
+    });
+
 }
 
-];
+// /* ============================= */
+// /* VER RECETA */
+// /* ============================= */
 
+// function verReceta(nombre){
 
+//     const receta = recetas.find(r=>r.nombre===nombre);
 
-const contenedor=document.getElementById("recetas");
+//     if(!receta) return;
 
+//     grid.classList.add("hidden");
 
-recetas.forEach(receta=>{
+//     hero.classList.add("hidden");
 
+//     printArea.classList.remove("hidden");
 
-let html=`
+//     printArea.scrollIntoView({
+//         behavior:"smooth"
+//     });
+
+//     printArea.innerHTML = `
+
+// <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+
+// <img
+
+// src="${receta.imagen}"
+
+// class="w-full h-72 object-cover">
+
+// <div class="p-8">
+
+// <button
+
+// id="volver"
+
+// onclick="volver()"
+
+// class="mb-8 bg-gray-200 hover:bg-gray-300 px-5 py-2 rounded-xl">
+
+// ← Regresar
+
+// </button>
+
+// <h1 class="text-5xl font-bold text-orange-700 mb-4">
+
+// ${receta.nombre}
+
+// </h1>
+
+// <span class="tag">
+
+// ${receta.horno}
+
+// </span>
+
+// <div class="grid md:grid-cols-2 gap-12 mt-10">
+
+// <div>
+
+// <h2 class="text-2xl font-bold mb-5">
+
+// 🧂 Ingredientes
+
+// </h2>
+
+// <ul class="space-y-3">
+
+// ${receta.ingredientes.map(i=>`
+
+// <li class="flex gap-3">
+
+// <span class="text-green-600">
+
+// ✔
+
+// </span>
+
+// <span>
+
+// ${i}
+
+// </span>
+
+// </li>
+
+// `).join("")}
+
+// </ul>
+
+// </div>
+
+// <div>
+
+// <h2 class="text-2xl font-bold mb-5">
+
+// 👨‍🍳 Procedimiento
+
+// </h2>
+
+// <ol class="space-y-5">
+
+// ${receta.pasos.map((p,index)=>`
+
+// <li class="flex gap-4">
+
+// <div
+
+// class="w-9 h-9 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold">
+
+// ${index+1}
+
+// </div>
+
+// <div>
+
+// ${p}
+
+// </div>
+
+// </li>
+
+// `).join("")}
+
+// </ol>
+
+// </div>
+
+// </div>
+
+// <div class="mt-12 text-center">
+
+// <button
+
+// id="btnImprimirReceta"
+
+// onclick="imprimirReceta('${receta.nombre}')"
+
+// class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold">
+
+// 🖨 Imprimir receta
+
+// </button>
+
+// </div>
+
+// </div>
+
+// </div>
+
+// `;
+
+// }
+
+// /* ============================= */
+// /* REGRESAR */
+// /* ============================= */
+
+// function volver(){
+
+//     printArea.classList.add("hidden");
+
+//     hero.classList.remove("hidden");
+
+//     grid.classList.remove("hidden");
+
+//     window.scrollTo({
+
+//         top:0,
+
+//         behavior:"smooth"
+
+//     });
+
+// }
+
+/* ============================= */
+/* BUSCADOR */
+/* ============================= */
+
+buscar.addEventListener("input",crearTarjetas);
+
+/* ============================= */
+/* CATEGORÍAS */
+/* ============================= */
+
+document.querySelectorAll(".categoria").forEach(btn=>{
+
+    btn.addEventListener("click",()=>{
+
+        categoriaActual=btn.dataset.cat;
+
+        document.querySelectorAll(".categoria").forEach(b=>{
+
+            b.classList.remove("bg-white","text-orange-700");
+
+            b.classList.add("bg-white/20","text-white");
+
+        });
+
+        btn.classList.remove("bg-white/20","text-white");
+
+        btn.classList.add("bg-white","text-orange-700");
+
+        crearTarjetas();
+
+    });
+
+});
+
+/* ============================= */
+/* INICIAR */
+/* ============================= */
+
+crearTarjetas();
+
+// function imprimirReceta(){
+
+//     modoImpresion = "una";
+
+//     document.body.classList.remove("imprimir-todas");
+//     document.body.classList.add("imprimir-una");
+
+//     window.print();
+
+// }
+
+// function imprimirTodo(){
+
+//     modoImpresion = "todas";
+
+//     generarRecetarioCompleto();
+
+//     document.body.classList.remove("imprimir-una");
+//     document.body.classList.add("imprimir-todas");
+
+//     window.print();
+
+// }
+
+function htmlReceta(receta){
+
+return `
 
 <section class="receta">
 
-<h2>${receta.nombre}</h2>
+<h1>${receta.nombre}</h1>
 
-<div class="imagen">
-${receta.imagen}
-</div>
+<img src="${receta.imagen}">
 
+<div class="info">${receta.horno}</div>
 
-<div class="seccion">
-
-<h3>🧂 Ingredientes</h3>
+<h2>Ingredientes</h2>
 
 <ul>
+
 ${receta.ingredientes.map(i=>`<li>${i}</li>`).join("")}
+
 </ul>
 
-</div>
+<h2>Procedimiento</h2>
 
+<ol>
 
-<div class="seccion">
-
-<h3>👩‍🍳 Procedimiento</h3>
-
-<ol class="pasos">
 ${receta.pasos.map(p=>`<li>${p}</li>`).join("")}
+
 </ol>
-
-</div>
-
-
-<div class="info">
-${receta.horno}
-</div>
-
-
-<br>
-
-<button onclick="imprimirReceta(this)">
-🖨 Imprimir receta
-</button>
-
 
 </section>
 
 `;
 
+}
 
-contenedor.innerHTML+=html;
+function imprimirReceta(nombre){
 
+    const receta = recetas.find(r=>r.nombre===nombre);
+
+    imprimirHTML(
+
+        htmlReceta(receta),
+
+        receta.nombre
+
+    );
+
+}
+
+function imprimirTodo(){
+
+    let html="";
+
+    recetas.forEach(r=>{
+
+        html += htmlReceta(r);
+
+    });
+
+    imprimirHTML(
+
+        html,
+
+        "Mi Recetario"
+
+    );
+
+}
+
+function abrirModal(){
+
+    modal.classList.remove("hidden");
+
+    document.body.classList.add("overflow-hidden");
+
+    requestAnimationFrame(()=>{
+
+        modalContenido.classList.remove("opacity-0","scale-95");
+
+        modalContenido.classList.add("opacity-100","scale-100");
+
+    });
+
+}
+
+function cerrarModal(){
+
+    modalContenido.classList.remove("opacity-100","scale-100");
+
+    modalContenido.classList.add("opacity-0","scale-95");
+
+    setTimeout(()=>{
+
+        modal.classList.add("hidden");
+
+        document.body.classList.remove("overflow-hidden");
+
+    },250);
+
+}
+
+modalOverlay.onclick = cerrarModal;
+
+document.addEventListener("keydown",e=>{
+
+    if(e.key==="Escape"){
+
+        cerrarModal();
+
+    }
 
 });
 
-function imprimirReceta(boton){
+function verReceta(nombre){
 
-    // Quitar selección anterior
-    document.querySelectorAll(".receta").forEach(r=>{
-        r.classList.remove("solo");
-    });
+    const receta = recetas.find(r=>r.nombre===nombre);
 
-    // Seleccionar la receta actual
-    boton.closest(".receta").classList.add("solo");
+    if(!receta) return;
 
-    // Activar modo impresión individual
-    document.body.classList.add("imprimir-una");
+    modalContenido.innerHTML = `
 
-    // Imprimir
-    window.print();
+<header class="sticky top-0 z-20 bg-white border-b px-6 py-4 flex justify-between items-center shadow-sm">
+
+    <div>
+
+        <span class="text-xs uppercase tracking-widest text-orange-500">
+
+            ${receta.categoria}
+
+        </span>
+
+        <h1 class="text-3xl font-bold text-orange-700">
+
+            ${receta.nombre}
+
+        </h1>
+
+    </div>
+
+    <div class="flex gap-3">
+
+        <button
+
+            onclick="imprimirReceta('${receta.nombre}')"
+
+            class="bg-green-600 hover:bg-green-700 text-white rounded-xl px-4 py-3 transition">
+
+            🖨
+
+        </button>
+
+        <button
+
+            onclick="cerrarModal()"
+
+            class="bg-gray-200 hover:bg-gray-300 rounded-xl px-4 py-3 transition">
+
+            ✕
+
+        </button>
+
+    </div>
+
+</header>
+
+<div class="overflow-y-auto h-full">
+
+    <img
+
+        src="${receta.imagen}"
+
+        class="w-full h-80 object-cover">
+
+    <div class="p-8">
+
+        <div class="mb-8">
+
+            <span class="inline-block bg-orange-100 text-orange-700 rounded-full px-4 py-2">
+
+                ${receta.horno}
+
+            </span>
+
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-10">
+
+            <div>
+
+                <h2 class="text-2xl font-bold mb-5">
+
+                    🧂 Ingredientes
+
+                </h2>
+
+                <ul class="space-y-3">
+
+                    ${receta.ingredientes.map(i=>`
+
+                    <li class="flex gap-3">
+
+                        <span class="text-green-600 mt-1">
+
+                            ✔
+
+                        </span>
+
+                        <span>
+
+                            ${i}
+
+                        </span>
+
+                    </li>
+
+                    `).join("")}
+
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h2 class="text-2xl font-bold mb-5">
+
+                    👨‍🍳 Procedimiento
+
+                </h2>
+
+                <ol class="space-y-5">
+
+                    ${receta.pasos.map((p,index)=>`
+
+                    <li class="flex gap-4">
+
+                        <div
+
+                            class="w-9 h-9 flex-shrink-0 rounded-full bg-orange-500 text-white flex items-center justify-center font-bold">
+
+                            ${index+1}
+
+                        </div>
+
+                        <div>
+
+                            ${p}
+
+                        </div>
+
+                    </li>
+
+                    `).join("")}
+
+                </ol>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+`;
+
+    abrirModal();
+
 }
-
-window.onafterprint = function(){
-
-    document.body.classList.remove("imprimir-una");
-
-    document.querySelectorAll(".receta").forEach(r=>{
-        r.classList.remove("solo");
-    });
-
-};
