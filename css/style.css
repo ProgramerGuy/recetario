@@ -18,26 +18,71 @@ li{
 
 }
 
+h2{
 
-body{
-    margin:0;
-    background:#fff8f0;
-    color:#3b2a20;
+    font-size:1.6rem;
+
+}
+
+h3{
+
+    font-size:1.1rem;
+
 }
 
 
-header{
+/* body{
+    margin:0;
+    background:#fff8f0;
+    color:#3b2a20;
+} */
+
+body{
+
+    margin:0;
+
+    background:linear-gradient(180deg,#fffdf8,#fff5eb);
+
+    color:#3d2f24;
+
+}
+
+
+/* header{
     text-align:center;
     padding:25px;
     background:#d98b5f;
     color:white;
+} */
+
+header{
+
+    background:linear-gradient(135deg,#D98B5F,#C96C42);
+
+    color:white;
+
+    padding:50px 20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
 }
 
 
 main{
-    max-width:900px;
+
+    width:min(1200px,95%);
     margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+
+    gap:25px;
+
     padding:20px;
+
 }
 
 
@@ -47,8 +92,22 @@ main{
     border-radius:15px;
     padding:25px;
     margin-bottom:25px;
+    width:100%;
 
     box-shadow:0 4px 15px rgba(0,0,0,.15);
+        overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+}
+
+.receta:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
 
 }
 
@@ -62,10 +121,12 @@ main{
 
 .imagen{
 
-    width:120px;
-    height:120px;
+    width:100%;
+    max-width:180px;
 
-    margin:10px auto;
+    aspect-ratio:1;
+
+    margin:auto;
 
     background:#fff4e6;
 
@@ -74,8 +135,12 @@ main{
     display:flex;
     align-items:center;
     justify-content:center;
+    padding:25px;
 
+    font-size:75px;
     font-size:55px;
+    overflow:hidden;
+    
 
 }
 
@@ -86,24 +151,25 @@ main{
 
 }
 
-
 ul{
 
-    padding-left:25px;
+    padding-left:18px;
 
 }
-
 
 li{
 
-    margin-bottom:8px;
+    line-height:1.45;
 
 }
 
-
 .pasos li{
 
-    margin-bottom:12px;
+position:relative;
+
+padding-left:40px;
+
+margin-bottom:15px;
 
 }
 
@@ -123,9 +189,13 @@ button{
     background:#b35c32;
     color:white;
     border:none;
-    padding:12px 20px;
     border-radius:8px;
     cursor:pointer;
+    width:100%;
+
+    padding:15px;
+
+    font-size:16px;
 
 }
 
@@ -163,6 +233,24 @@ button{
     font-size:22px;
     margin:5px 0;
     text-align:center;
+
+}
+
+.tag{
+
+display:inline-block;
+
+background:#FFE6C7;
+
+padding:8px 15px;
+
+border-radius:30px;
+
+margin:4px;
+
+font-size:14px;
+
+font-weight:bold;
 
 }
 
@@ -433,6 +521,53 @@ transform:rotate(8deg) scale(1.1);
 .hero{
 
 display:none;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero{
+
+padding:20px;
+
+}
+
+.datos{
+
+flex-direction:column;
+gap:15px;
+
+}
+
+.receta{
+
+padding:18px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+body{
+
+font-size:15px;
+
+}
+
+h2{
+
+font-size:22px;
+
+}
+
+.imagen{
+
+max-width:120px;
+
+font-size:60px;
 
 }
 
