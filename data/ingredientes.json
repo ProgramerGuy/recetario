@@ -1,0 +1,188 @@
+[
+  {
+    "nombre": "Harina",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 18
+  },
+  {
+    "nombre": "Harina Selecta",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 18
+  },
+  {
+    "nombre": "Azúcar",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 38
+  },
+  {
+    "nombre": "Azúcar refinada",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 38
+  },
+  {
+    "nombre": "Azúcar mascabado",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 65
+  },
+  {
+    "nombre": "Mantequilla",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 300
+  },
+  {
+    "nombre": "Mantequilla Selecta",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 210
+  },
+  {
+    "nombre": "Manteca vegetal",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 70
+  },
+  {
+    "nombre": "Manteca Inca",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 70
+  },
+  {
+    "nombre": "Huevos",
+    "unidadCompra": "pieza",
+    "cantidadCompra": 1,
+    "precio": 3.8
+  },
+  {
+    "nombre": "Leche",
+    "unidadCompra": "litro",
+    "cantidadCompra": 1,
+    "precio": 28
+  },
+  {
+    "nombre": "Leche en polvo",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 220
+  },
+  {
+    "nombre": "Polvo para hornear",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 120
+  },
+  {
+    "nombre": "Bicarbonato",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 44
+  },
+  {
+    "nombre": "Sal",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 25
+  },
+  {
+    "nombre": "Vainilla",
+    "unidadCompra": "litro",
+    "cantidadCompra": 1,
+    "precio": 320
+  },
+  {
+    "nombre": "Vainilla oscura",
+    "unidadCompra": "litro",
+    "cantidadCompra": 1,
+    "precio": 320
+  },
+  {
+    "nombre": "Vainilla transparente",
+    "unidadCompra": "litro",
+    "cantidadCompra": 1,
+    "precio": 350
+  },
+  {
+    "nombre": "Nuez en trozos",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 280
+  },
+  {
+    "nombre": "Nuez",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 280
+  },
+  {
+    "nombre": "Chispas de chocolate",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 420
+  },
+  {
+    "nombre": "Cocoa",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 180
+  },
+  {
+    "nombre": "Canela",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 600
+  },
+  {
+    "nombre": "Coco rallado",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 180
+  },
+  {
+    "nombre": "Arándanos",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 280
+  },
+  {
+    "nombre": "Merengue en polvo",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 450
+  },
+  {
+    "nombre": "Cremor tártaro",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 650
+  },
+  {
+    "nombre": "Azúcar glass",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 65
+  },
+  {
+    "nombre": "Agua",
+    "unidadCompra": "litro",
+    "cantidadCompra": 1,
+    "precio": 0
+  },
+  {
+    "nombre": "Rexal",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 95
+  },
+  {
+    "nombre": "Manteca Cristal",
+    "unidadCompra": "kg",
+    "cantidadCompra": 1,
+    "precio": 72
+  }
+]

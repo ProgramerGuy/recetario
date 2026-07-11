@@ -1,0 +1,439 @@
+*{
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+ul, ol{
+
+    margin-top:5px;
+    margin-bottom:5px;
+
+}
+
+
+li{
+
+    margin-bottom:4px;
+    font-size:14px;
+
+}
+
+
+body{
+    margin:0;
+    background:#fff8f0;
+    color:#3b2a20;
+}
+
+
+header{
+    text-align:center;
+    padding:25px;
+    background:#d98b5f;
+    color:white;
+}
+
+
+main{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+
+.receta{
+
+    background:white;
+    border-radius:15px;
+    padding:25px;
+    margin-bottom:25px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+
+}
+
+
+.receta h2{
+
+    color:#b35c32;
+
+}
+
+
+.imagen{
+
+    width:120px;
+    height:120px;
+
+    margin:10px auto;
+
+    background:#fff4e6;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:55px;
+
+}
+
+
+.seccion{
+
+    margin-top:20px;
+
+}
+
+
+ul{
+
+    padding-left:25px;
+
+}
+
+
+li{
+
+    margin-bottom:8px;
+
+}
+
+
+.pasos li{
+
+    margin-bottom:12px;
+
+}
+
+
+.info{
+
+    background:#fff0dc;
+    padding:15px;
+    border-radius:10px;
+    margin-top:15px;
+
+}
+
+
+button{
+
+    background:#b35c32;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
+
+
+button:hover{
+
+    background:#8d4423;
+
+}
+
+
+
+@media print {
+
+
+header{
+    display:none;
+}
+
+
+button{
+    display:none;
+}
+
+
+.receta{
+
+    box-shadow:none;
+    page-break-after:always;
+
+}
+
+.receta h2{
+
+    font-size:22px;
+    margin:5px 0;
+    text-align:center;
+
+}
+
+
+h3{
+
+    font-size:16px;
+    margin:10px 0 5px;
+
+}
+
+body{
+
+    background:white;
+
+}
+
+}
+
+@media print{
+
+
+@page{
+
+    size:letter;
+    margin:12mm;
+
+}
+
+
+body{
+
+    background:white;
+    font-size:12px;
+
+}
+
+
+header{
+
+    display:none;
+
+}
+
+
+.imprimirTodo,
+button{
+
+    display:none;
+
+}
+
+
+.receta{
+
+    box-shadow:none;
+    border:none;
+
+    width:100%;
+
+    page-break-after:always;
+
+    padding:5px;
+
+}
+
+
+.imagen{
+
+    width:90px;
+    height:90px;
+
+    font-size:45px;
+
+}
+
+
+.receta h2{
+
+    font-size:18px;
+
+}
+
+
+h3{
+
+    font-size:14px;
+
+}
+
+
+li{
+
+    font-size:12px;
+
+}
+
+}
+
+.hero{
+
+    max-width:900px;
+
+    margin:30px auto;
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+    animation:aparecer .8s ease;
+
+}
+
+
+.hero h2{
+
+    text-align:center;
+
+    color:#b35c32;
+
+}
+
+
+.hero p{
+
+    text-align:center;
+
+    color:#555;
+
+    line-height:1.6;
+
+}
+
+
+.datos{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin:30px 0;
+
+}
+
+
+.datos div{
+
+    text-align:center;
+
+    font-size:30px;
+
+}
+
+
+.datos span{
+
+    display:block;
+
+    font-size:15px;
+
+    margin-top:8px;
+
+}
+
+
+.imprimirTodo{
+
+    display:block;
+
+    margin:auto;
+
+    font-size:18px;
+
+    padding:15px 35px;
+
+}
+
+@keyframes aparecer{
+
+0%{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+100%{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+.receta{
+
+    animation:subir .7s ease;
+
+    transition:.3s;
+
+}
+
+@keyframes subir{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+.receta:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 15px 30px rgba(0,0,0,.18);
+
+}
+
+.imprimirTodo{
+
+transition:.3s;
+
+}
+
+.imprimirTodo:hover{
+
+transform:scale(1.08);
+
+}
+
+.imprimirTodo:active{
+
+transform:scale(.95);
+
+}
+
+.imagen{
+
+transition:.4s;
+
+}
+
+.receta:hover .imagen{
+
+transform:rotate(8deg) scale(1.1);
+
+}
+
+@media print{
+
+.hero{
+
+display:none;
+
+}
+
+}

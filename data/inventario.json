@@ -1,0 +1,77 @@
+[
+    {
+        "nombre":"Harina",
+        "cantidad":5000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Harina Selecta",
+        "cantidad":10000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Azúcar refinada",
+        "cantidad":3000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Azúcar",
+        "cantidad":2000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Azúcar mascabado",
+        "cantidad":1000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Mantequilla",
+        "cantidad":2000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Mantequilla Selecta",
+        "cantidad":3000,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Huevos",
+        "cantidad":30,
+        "unidad":"pieza"
+    },
+    {
+        "nombre":"Leche",
+        "cantidad":3000,
+        "unidad":"ml"
+    },
+    {
+        "nombre":"Vainilla",
+        "cantidad":500,
+        "unidad":"ml"
+    },
+    {
+        "nombre":"Polvo para hornear",
+        "cantidad":500,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Bicarbonato",
+        "cantidad":500,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Sal",
+        "cantidad":500,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Nuez en trozos",
+        "cantidad":1500,
+        "unidad":"g"
+    },
+    {
+        "nombre":"Chispas de chocolate",
+        "cantidad":1200,
+        "unidad":"g"
+    }
+]

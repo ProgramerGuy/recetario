@@ -1,0 +1,227 @@
+[
+  {
+    "id": 1,
+    "categoria": "galletas",
+    "nombre": "Polvorones de Nuez",
+    "imagen": "img/polvorones.jpg",
+    "temperatura": "180 °C",
+    "tiempo": "10-15 min",
+    "rendimiento": "24 piezas",
+    "dificultad": "Fácil",
+    "ingredientes": [
+      { "cantidad": 500, "unidad": "g", "nombre": "Harina" },
+      { "cantidad": 150, "unidad": "g", "nombre": "Azúcar refinada" },
+      { "cantidad": 150, "unidad": "g", "nombre": "Nuez en trozos" },
+      { "cantidad": 50, "unidad": "g", "nombre": "Manteca vegetal" },
+      { "cantidad": 300, "unidad": "g", "nombre": "Mantequilla Selecta" }
+    ],
+    "procedimiento": [
+      "Acremar la manteca, la mantequilla y el azúcar.",
+      "Agregar harina y nuez hasta formar una masa homogénea.",
+      "Formar bolitas y aplastarlas ligeramente.",
+      "Colocar sobre charola con papel para hornear.",
+      "Hornear a 180 °C durante 10 a 15 minutos.",
+      "Espolvorear azúcar refinada al salir del horno."
+    ]
+  },
+  {
+    "id": 2,
+    "categoria": "panes",
+    "nombre": "Panqué de Chispas",
+    "imagen": "img/panque.jpg",
+    "temperatura": "180 °C",
+    "tiempo": "30-45 min",
+    "rendimiento": "1 panqué",
+    "dificultad": "Fácil",
+    "ingredientes": [
+      { "cantidad": 3, "unidad": "pzas", "nombre": "Huevos" },
+      { "cantidad": 1, "unidad": "taza", "nombre": "Azúcar" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Aceite" },
+      { "cantidad": 1, "unidad": "taza", "nombre": "Leche" },
+      { "cantidad": 2, "unidad": "tazas", "nombre": "Harina" },
+      { "cantidad": 1, "unidad": "cdita", "nombre": "Vainilla" },
+      { "cantidad": 1, "unidad": "taza", "nombre": "Chispas de chocolate" },
+      { "cantidad": 2, "unidad": "cditas", "nombre": "Polvo para hornear" },
+      { "cantidad": 1, "unidad": "pizca", "nombre": "Sal" }
+    ],
+    "procedimiento": [
+      "Batir huevos, azúcar, aceite, leche y vainilla durante 2 minutos.",
+      "Mezclar harina, polvo para hornear y sal.",
+      "Mezclar las chispas con dos cucharadas de harina.",
+      "Agregar los ingredientes secos a los líquidos.",
+      "Incorporar las chispas con movimientos envolventes.",
+      "Hornear de 30 a 45 minutos a 180 °C."
+    ]
+  },
+  {
+    "id": 3,
+    "categoria": "cupcakes",
+    "nombre": "Cupcakes de Chocolate",
+    "imagen": "img/cupcakes.jpg",
+    "temperatura": "175 °C",
+    "tiempo": "18-22 min",
+    "rendimiento": "12 cupcakes",
+    "dificultad": "Media",
+    "ingredientes": [
+      { "cantidad": 1, "unidad": "taza", "nombre": "Harina" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Cocoa" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Mantequilla" },
+      { "cantidad": 0.75, "unidad": "taza", "nombre": "Azúcar" },
+      { "cantidad": 1, "unidad": "pza", "nombre": "Huevo" },
+      { "cantidad": 1, "unidad": "cdita", "nombre": "Vainilla" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Leche" },
+      { "cantidad": 0.25, "unidad": "cdita", "nombre": "Sal" },
+      { "cantidad": 0.5, "unidad": "cdita", "nombre": "Bicarbonato" },
+      { "cantidad": 1, "unidad": "cdita", "nombre": "Polvo para hornear" }
+    ],
+    "procedimiento": [
+      "Colocar los capacillos.",
+      "Mezclar los ingredientes secos.",
+      "Acremar mantequilla y azúcar.",
+      "Agregar el huevo.",
+      "Incorporar vainilla.",
+      "Alternar ingredientes secos y leche.",
+      "Llenar los capacillos a 2/3.",
+      "Hornear de 18 a 22 minutos."
+    ]
+  },
+  {
+    "id": 4,
+    "categoria": "panes",
+    "nombre": "Pan de Vainilla",
+    "imagen": "img/pan-vainilla.jpg",
+    "temperatura": "180 °C",
+    "tiempo": "40-50 min",
+    "rendimiento": "1 pan",
+    "dificultad": "Media",
+    "ingredientes": [
+      { "cantidad": 350, "unidad": "g", "nombre": "Harina" },
+      { "cantidad": 1, "unidad": "cda", "nombre": "Polvo para hornear" },
+      { "cantidad": 0.5, "unidad": "cdita", "nombre": "Sal" },
+      { "cantidad": 230, "unidad": "g", "nombre": "Mantequilla" },
+      { "cantidad": 400, "unidad": "g", "nombre": "Azúcar" },
+      { "cantidad": 4, "unidad": "pzas", "nombre": "Huevos" },
+      { "cantidad": 1, "unidad": "cdita", "nombre": "Vainilla" }
+    ],
+    "procedimiento": [
+      "Cernir harina, polvo para hornear y sal.",
+      "Batir la mantequilla.",
+      "Agregar azúcar poco a poco.",
+      "Incorporar los huevos uno por uno.",
+      "Agregar vainilla.",
+      "Alternar ingredientes secos con leche.",
+      "Engrasar el molde.",
+      "Hornear de 40 a 50 minutos."
+    ]
+  },
+  {
+    "id": 5,
+    "categoria": "galletas",
+    "nombre": "Galletas de Avena",
+    "imagen": "img/avena.jpg",
+    "temperatura": "180 °C",
+    "tiempo": "10-15 min",
+    "rendimiento": "24 piezas",
+    "dificultad": "Fácil",
+    "ingredientes": [
+      { "cantidad": 1, "unidad": "taza", "nombre": "Harina" },
+      { "cantidad": 1.5, "unidad": "tazas", "nombre": "Avena" },
+      { "cantidad": 1, "unidad": "taza", "nombre": "Azúcar mascabado" },
+      { "cantidad": 1, "unidad": "pza", "nombre": "Huevo" },
+      { "cantidad": 1, "unidad": "cda", "nombre": "Vainilla" },
+      { "cantidad": 0.5, "unidad": "cda", "nombre": "Canela" },
+      { "cantidad": 0.5, "unidad": "cda", "nombre": "Bicarbonato" },
+      { "cantidad": 0.25, "unidad": "cda", "nombre": "Sal" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Coco rallado" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Arándanos" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Nuez" },
+      { "cantidad": 45, "unidad": "g", "nombre": "Mantequilla" }
+    ],
+    "procedimiento": [
+      "Mezclar ingredientes húmedos.",
+      "Agregar huevo y vainilla.",
+      "Incorporar ingredientes secos.",
+      "Agregar coco, arándanos y nuez.",
+      "Formar galletas.",
+      "Hornear de 10 a 15 minutos."
+    ]
+  },
+  {
+    "id": 6,
+    "categoria": "galletas",
+    "nombre": "Masa para Galletas",
+    "imagen": "img/masa.jpg",
+    "temperatura": "180 °C",
+    "tiempo": "15-20 min",
+    "rendimiento": "Base",
+    "dificultad": "Media",
+    "ingredientes": [
+      { "cantidad": 500, "unidad": "g", "nombre": "Manteca Inca" },
+      { "cantidad": 1000, "unidad": "g", "nombre": "Harina Selecta" },
+      { "cantidad": 4, "unidad": "pzas", "nombre": "Huevos" },
+      { "cantidad": 1, "unidad": "cda", "nombre": "Rexal" },
+      { "cantidad": 0.75, "unidad": "taza", "nombre": "Azúcar refinada" },
+      { "cantidad": 0.5, "unidad": "taza", "nombre": "Leche en polvo" },
+      { "cantidad": 1, "unidad": "cda", "nombre": "Vainilla oscura" }
+    ],
+    "procedimiento": [
+      "Mezclar harina, Rexal y leche en polvo.",
+      "Acremar manteca durante 5 minutos.",
+      "Agregar azúcar.",
+      "Incorporar huevos uno por uno.",
+      "Agregar vainilla.",
+      "Integrar ingredientes secos.",
+      "Amasar.",
+      "Hornear de 15 a 20 minutos."
+    ]
+  },
+  {
+    "id": 7,
+    "categoria": "glaseados",
+    "nombre": "Glasa Madre",
+    "imagen": "img/royal.jpg",
+    "temperatura": "Sin hornear",
+    "tiempo": "5 min de batido",
+    "rendimiento": "1 kg",
+    "dificultad": "Media",
+    "ingredientes": [
+      { "cantidad": 1000, "unidad": "g", "nombre": "Azúcar glass" },
+      { "cantidad": 130, "unidad": "ml", "nombre": "Agua" },
+      { "cantidad": 30, "unidad": "g", "nombre": "Merengue en polvo" },
+      { "cantidad": 5, "unidad": "g", "nombre": "Cremor tártaro" },
+      { "cantidad": 2, "unidad": "cda", "nombre": "Vainilla transparente" }
+    ],
+    "procedimiento": [
+      "Cernir azúcar glass.",
+      "Agregar merengue y cremor tártaro.",
+      "Mezclar agua con vainilla.",
+      "Incorporar poco a poco.",
+      "Batir durante 5 minutos.",
+      "Guardar tapado a temperatura ambiente."
+    ]
+  },
+  {
+    "id": 8,
+    "categoria": "betunes",
+    "nombre": "Betún de Mantequilla",
+    "imagen": "img/buttercream.jpg",
+    "temperatura": "Sin hornear",
+    "tiempo": "10 min",
+    "rendimiento": "1 lote",
+    "dificultad": "Fácil",
+    "ingredientes": [
+      { "cantidad": 150, "unidad": "g", "nombre": "Mantequilla Selecta" },
+      { "cantidad": 450, "unidad": "g", "nombre": "Azúcar glass" },
+      { "cantidad": 1, "unidad": "cda", "nombre": "Merengue en polvo" },
+      { "cantidad": 2, "unidad": "cda", "nombre": "Leche" },
+      { "cantidad": 15, "unidad": "g", "nombre": "Manteca Cristal" }
+    ],
+    "procedimiento": [
+      "Batir mantequilla y manteca.",
+      "Agregar azúcar glass en dos partes.",
+      "Añadir vainilla.",
+      "Agregar leche poco a poco.",
+      "Batir hasta obtener consistencia cremosa."
+    ]
+  }
+]
