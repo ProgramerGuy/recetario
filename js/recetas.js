@@ -5,7 +5,7 @@ const recetas = [
 
     categoria: "Galletas",
 
-    imagen: "img/polvorones.png",
+    imagen: "img/polvoron.png",
 
     horno: "🔥 180°C · 10-15 min",
 
