@@ -9,6 +9,46 @@ const modalOverlay = document.getElementById("modalOverlay");
 let categoriaActual = "Todos";
 
 /* ============================= */
+/* RECETAS REVISADAS */
+/* ============================= */
+
+function obtenerRecetasRevisadas(){
+
+    return JSON.parse(localStorage.getItem("recetasRevisadas") || "{}");
+
+}
+
+function estaRevisada(nombre){
+
+    const revisadas = obtenerRecetasRevisadas();
+
+    return revisadas[nombre] === true;
+
+}
+
+function cambiarRevision(nombre){
+
+    const revisadas = obtenerRecetasRevisadas();
+
+    revisadas[nombre] = !revisadas[nombre];
+
+    localStorage.setItem(
+        "recetasRevisadas",
+        JSON.stringify(revisadas)
+    );
+
+    crearTarjetas();
+    actualizarEstadoRecetario();
+
+    if(!modal.classList.contains("hidden")){
+
+        verReceta(nombre);
+
+    }
+
+}
+
+/* ============================= */
 /* CREAR TARJETAS */
 /* ============================= */
 
@@ -62,6 +102,22 @@ function crearTarjetas() {
             class="w-full h-full object-cover">
 
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+
+        ${estaRevisada(receta.nombre) ? `
+
+            <div class="absolute top-4 right-4">
+
+                <span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg flex items-center gap-2">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    Revisada
+
+                </span>
+
+            </div>
+
+            ` : ""}
 
         <div class="absolute bottom-5 left-5">
 
@@ -328,6 +384,7 @@ document.querySelectorAll(".categoria").forEach(btn=>{
 /* ============================= */
 
 crearTarjetas();
+actualizarEstadoRecetario();
 
 // function imprimirReceta(){
 
@@ -488,6 +545,17 @@ function verReceta(nombre){
             ${receta.nombre}
 
         </h1>
+        ${estaRevisada(receta.nombre) ? `
+
+        <div class="mt-4 inline-flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full">
+
+            <i class="fa-solid fa-award"></i>
+
+            Receta revisada
+
+        </div>
+
+        ` : ""}
 
     </div>
 
@@ -613,10 +681,269 @@ function verReceta(nombre){
 
     </div>
 
+    <div class="mt-12 border-t pt-8">
+
+    <div class="bg-gray-50 rounded-2xl p-6">
+
+        <h3 class="text-xl font-bold mb-4">
+
+            Estado de revisión
+
+        </h3>
+
+        <button
+
+            onclick="cambiarRevision('${receta.nombre.replace(/'/g,"\\'")}')"
+
+            class="${
+                estaRevisada(receta.nombre)
+                ? "bg-emerald-600"
+                : "bg-orange-500"
+            } text-white px-6 py-3 rounded-xl hover:scale-105 transition">
+
+            ${
+                estaRevisada(receta.nombre)
+                ? "✔ Marcar como NO revisada"
+                : "✔ Marcar como revisada"
+            }
+
+        </button>
+
+    </div>
+
+</div>
+
 </div>
 
 `;
 
     abrirModal();
+
+}
+
+/*====================================
+ESTADO DEL RECETARIO
+====================================*/
+
+function obtenerEstadoRecetario(){
+
+    return JSON.parse(
+        localStorage.getItem("estadoRecetario")
+        ||
+        '{"revisado":false}'
+    );
+
+}
+
+function guardarEstadoRecetario(datos){
+
+    localStorage.setItem(
+        "estadoRecetario",
+        JSON.stringify(datos)
+    );
+
+}
+
+function actualizarEstadoRecetario(){
+
+    const total = recetas.length;
+
+    const revisadas = cantidadRecetasRevisadas();
+
+    const div = document.getElementById("estadoRecetario");
+
+    if(revisadas === 0){
+
+        div.innerHTML = `
+
+<div class="w-full bg-yellow-50 border-l-8 border-yellow-500 rounded-3xl p-6 shadow">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<h2 class="text-2xl font-bold text-yellow-700">
+
+⏳ Pendiente de revisión
+
+</h2>
+
+<p class="text-gray-600 mt-2">
+
+Ninguna receta ha sido revisada.
+
+</p>
+
+</div>
+
+<button
+onclick="revisarTodo()"
+class="bg-orange-500 text-white px-6 py-3 rounded-xl">
+
+✔ Revisar todo
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+    }
+
+    else if(revisadas < total){
+
+        div.innerHTML = `
+
+<div class="w-full bg-orange-50 border-l-8 border-orange-500 rounded-3xl p-6 shadow">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<h2 class="text-2xl font-bold text-orange-700">
+
+🟠 En revisión
+
+</h2>
+
+
+<div class="mt-4">
+    <div class="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+        <div
+            class="h-full bg-emerald-500 transition-all duration-500"
+            style="width:${(revisadas / total) * 100}%">
+        </div>
+    </div>
+    <p class="mt-2 text-sm text-gray-600">
+        ${revisadas} de ${total} recetas revisadas
+    </p>
+</div>
+
+</div>
+
+<button
+onclick="revisarTodo()"
+class="bg-orange-500 text-white px-6 py-3 rounded-xl">
+
+✔ Revisar todas
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+    }
+
+    else{
+
+        div.innerHTML = `
+
+<div class="w-full bg-emerald-50 border-l-8 border-emerald-500 rounded-3xl p-6 shadow">
+
+<div class="flex justify-between items-center">
+
+<div>
+
+<h2 class="text-2xl font-bold text-emerald-700">
+
+🏅 Recetario verificado
+
+</h2>
+
+<p class="text-gray-600 mt-2">
+
+Todas las recetas fueron revisadas.
+
+</p>
+
+</div>
+
+<button
+onclick="quitarRevisionRecetario()"
+class="bg-red-500 text-white px-6 py-3 rounded-xl">
+
+Quitar revisión
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+    }
+
+}
+// function revisarTodo(){
+
+//     guardarEstadoRecetario({
+
+//         revisado:true,
+
+//         fecha:new Date().toLocaleDateString()
+
+//     });
+
+//     actualizarEstadoRecetario();
+
+// }
+
+function revisarTodo(){
+
+    const revisadas = {};
+
+    recetas.forEach(r=>{
+
+        revisadas[r.nombre]=true;
+
+    });
+
+    localStorage.setItem(
+
+        "recetasRevisadas",
+
+        JSON.stringify(revisadas)
+
+    );
+
+    crearTarjetas();
+
+    actualizarEstadoRecetario();
+
+}
+
+// function quitarRevisionRecetario(){
+
+//     guardarEstadoRecetario({
+
+//         revisado:false
+
+//     });
+
+//     actualizarEstadoRecetario();
+
+// }
+
+function cantidadRecetasRevisadas(){
+
+    const revisadas = obtenerRecetasRevisadas();
+
+    return recetas.filter(r => revisadas[r.nombre]).length;
+
+}
+
+function quitarRevisionRecetario(){
+
+    localStorage.removeItem("recetasRevisadas");
+
+    crearTarjetas();
+
+    actualizarEstadoRecetario();
 
 }
