@@ -276,7 +276,7 @@ ${receta.horno}
 
 <br>
 
-<button onclick="window.print()">
+<button onclick="imprimirReceta(this)">
 🖨 Imprimir receta
 </button>
 
@@ -293,48 +293,27 @@ contenedor.innerHTML+=html;
 
 function imprimirReceta(boton){
 
-let receta = boton.closest(".receta");
+    // Quitar selección anterior
+    document.querySelectorAll(".receta").forEach(r=>{
+        r.classList.remove("solo");
+    });
 
-let contenido = receta.innerHTML;
+    // Seleccionar la receta actual
+    boton.closest(".receta").classList.add("solo");
 
-let ventana = window.open("");
+    // Activar modo impresión individual
+    document.body.classList.add("imprimir-una");
 
-ventana.document.write(`
-<html>
-<head>
-
-<title>Receta</title>
-
-<style>
-
-body{
-font-family:Arial;
-padding:30px;
+    // Imprimir
+    window.print();
 }
 
-img{
-max-width:100%;
-}
+window.onafterprint = function(){
 
-button{
-display:none;
-}
+    document.body.classList.remove("imprimir-una");
 
-</style>
+    document.querySelectorAll(".receta").forEach(r=>{
+        r.classList.remove("solo");
+    });
 
-</head>
-
-<body>
-
-${contenido}
-
-</body>
-
-</html>
-`);
-
-ventana.document.close();
-
-ventana.print();
-
-}
+};

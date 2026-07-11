@@ -210,6 +210,18 @@ button:hover{
 
 @media print {
 
+    body.imprimir-una .receta{
+
+    display:none;
+
+}
+
+body.imprimir-una .receta.solo{
+
+    display:block;
+
+}
+
 
 header{
     display:none;
@@ -221,12 +233,29 @@ button{
 }
 
 
-.receta{
+    body{
+        background:white !important;
+    }
 
-    box-shadow:none;
-    page-break-after:always;
+    main{
+        display:block !important;
+    }
 
-}
+    .receta{
+
+        width:100% !important;
+
+        box-shadow:none !important;
+
+        border:none !important;
+
+        margin:0 !important;
+
+        padding:10mm !important;
+
+        page-break-after:always;
+
+    }
 
 .receta h2{
 
